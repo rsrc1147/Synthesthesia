@@ -298,6 +298,31 @@
             // Capture subsequent snapshots every 3 seconds
             setInterval(captureSnapshot, 3000);
         });
+
+        let currentCamera = 'environment'; // Default to rear camera ('environment')
+
+        async function startCamera(cameraFacing = 'user') {
+            const video = document.getElementById('video');
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({
+                    video: { facingMode: cameraFacing }
+                });
+                video.srcObject = stream;
+            } catch (error) {
+                console.error("Error accessing the camera:", error);
+                alert("Unable to access the camera. Please ensure permissions are granted.");
+            }
+        }
+
+        document.getElementById('toggle-camera').addEventListener('click', () => {
+            currentCamera = currentCamera === 'user' ? 'environment' : 'user'; // Toggle between 'user' and 'environment'
+            startCamera(currentCamera);
+        });
+
+        // Start with the rear camera
+        document.addEventListener('DOMContentLoaded', () => {
+            startCamera(currentCamera);
+        });
     </script>
 </body>
 
