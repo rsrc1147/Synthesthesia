@@ -91,15 +91,29 @@
             border-style: solid;
             border-width: 25vh 0 25vh 40vh;
             position: absolute;
-            top: 25vh;
-            left: 25vw;
-            &.paused {
-                border-style: double;
-                border-width: 0px 0 0px 40vh;
-            }
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
 
-            &:hover {
-                border-color: transparent transparent transparent #404040;
+        #playPause.paused {
+            border-style: double;
+            border-width: 0px 0 0px 40vh;
+        }
+
+        #playPause:hover {
+            border-color: transparent transparent transparent rgba(255, 255, 255, 0.2);
+        }
+
+        @media (max-width: 600px) {
+            #playPause {
+                border-width: 20vh 0 20vh 30vh;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            #playPause {
+                border-width: 30vh 0 30vh 50vh;
             }
         }
     </style>
