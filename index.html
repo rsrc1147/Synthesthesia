@@ -180,7 +180,7 @@
             const noteIndex = Math.floor((hue / 360) * (notes.length * 3));
 
             // Adjust octave based on brightness (spreading more dynamically)
-            const octave = Math.min(6, Math.max(2, Math.floor(2 + brightness * 4)));
+            const octave = Math.min(6, Math.max(2, Math.floor(2 + brightness * 5)));
 
             // Retrieve note, ensuring it wraps around properly
             const note = notes[noteIndex % notes.length];
